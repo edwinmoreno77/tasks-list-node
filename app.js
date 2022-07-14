@@ -1,12 +1,21 @@
 require('colors');
 
 const { inquirerMenu, pause, readInput } = require('./helpers/inquirer');
+const { saveDB, readDB } = require('./helpers/saveFile');
 const Tasks = require('./models/tasks');
 
 const main = async () => {
 
     let option = '';
     const tasks = new Tasks();
+
+    const tasksDB = readDB();
+
+    if (tasksDB) {
+        tasks.loadTasksFromArray(tasksDB);
+    }
+
+    // await pause();
 
     do {
         option = await inquirerMenu();
@@ -17,14 +26,14 @@ const main = async () => {
                 tasks.createTask(desc);
                 break;
             case '2':
-                console.log(tasks.listArr);
+                tasks.tasksList();
                 break;
-            // case '3':
-            //     tasks.completeTask();
-            //     break;
-            // case '4':
-            //     tasks.deleteTask();
-            //     break;
+            case '3':
+                tasks.listCompleteTask();
+                break;
+            case '4':
+                tasks.listPendingTask();
+                break;
             // case '5':
             //     tasks.deleteAllTasks();
             //     break;
@@ -39,6 +48,8 @@ const main = async () => {
             //     pause();
             //     break; 
         }
+
+        saveDB(tasks.listArr);
 
         await pause();
 

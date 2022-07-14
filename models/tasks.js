@@ -1,5 +1,5 @@
 const Task = require("./task");
-
+require('colors');
 
 
 class Tasks {
@@ -20,6 +20,50 @@ class Tasks {
     constructor() {
         this._list = {};
     }
+
+    loadTasksFromArray(tasks = []) {
+
+        tasks.forEach(task => {
+            this._list[task.id] = task;
+
+        });
+        // this._list = tasks;
+    }
+
+    tasksList() {
+        console.log();
+        this.listArr.forEach((task, i) => {
+            const idx = `${i + 1}`.green;
+            const { desc, completedIn } = task;
+            const state = (completedIn)
+                ? 'Completed'.green
+                : 'Pending'.red;
+            console.log(`${idx} ${desc} :: ${state}`);
+        });
+    }
+
+    listCompleteTask() {
+        console.log();
+        this.listArr.forEach((task, i) => {
+            const idx = `${i + 1}`.green;
+            const { desc, completedIn } = task;
+            if (completedIn) {
+                console.log(`${idx} ${desc} ::`, `completed`.green);
+            }
+        });
+    }
+
+    listPendingTask() {
+        console.log();
+        this.listArr.forEach((task, i) => {
+            const idx = `${i + 1}`.green;
+            const { desc, completedIn } = task;
+            if (!completedIn) {
+                console.log(`${idx} ${desc} ::`, `Pending`.red);
+            }
+        });
+    }
+
 
     createTask(desc = '') {
 
