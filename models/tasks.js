@@ -28,7 +28,6 @@ class Tasks {
         }
     }
 
-
     loadTasksFromArray(tasks = []) {
 
         tasks.forEach(task => {
@@ -63,7 +62,7 @@ class Tasks {
                 //show completed
                 if (completedIn) {
                     counter += 1;
-                    console.log(`${counter}.`.green, `${desc} :: `, `${completedIn}`.yellow);
+                    console.log(`${counter}.`.green, `${desc} :: `, `${completedIn}`.green);
                 }
             } else {
                 //show pending
@@ -81,6 +80,24 @@ class Tasks {
         const task = new Task(desc);
 
         this._list[task.id] = task;
+    }
+
+    toggleCompleted(ids = []) {
+
+        ids.forEach(id => {
+
+            const task = this._list[id];
+            if (!task.completedIn) {
+                task.completedIn = new Date().toISOString();
+            }
+        });
+
+        this.listArr.forEach(task => {
+
+            if (!ids.includes(task.id)) {
+                this._list[task.id].completedIn = null;
+            }
+        });
     }
 }
 

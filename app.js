@@ -1,5 +1,5 @@
 require('colors');
-const { inquirerMenu, confirm, pause, readInput, deleteTaskList } = require('./helpers/inquirer');
+const { inquirerMenu, confirm, pause, readInput, deleteTaskList, showCheckList } = require('./helpers/inquirer');
 const { saveDB, readDB } = require('./helpers/saveFile');
 const Tasks = require('./models/tasks');
 
@@ -15,29 +15,28 @@ const main = async () => {
         tasks.loadTasksFromArray(tasksDB);
     }
 
-    // await pause();
-
     do {
         option = await inquirerMenu();
 
         switch (option) {
-            case '1':
+            case '1':// Add task
                 const desc = await readInput('Enter a task description:');
                 tasks.createTask(desc);
                 break;
-            case '2':
+            case '2':// List tasks
                 tasks.tasksList();
                 break;
-            case '3':
+            case '3':// List completed tasks
                 tasks.listCompleteTask(true);
                 break;
-            case '4':
+            case '4':// List pending tasks
                 tasks.listCompleteTask(false);
                 break;
-            case '5':
-                // tasks.deleteAllTasks();
+            case '5'://complete task
+                const ids = await showCheckList(tasks.listArr);
+                tasks.toggleCompleted(ids);
                 break;
-            case '6':
+            case '6'://delete task
                 const id = await deleteTaskList(tasks.listArr);
                 if (id !== '0') {
                     const confirmDelete = await confirm(`Are you sure?`);
@@ -47,13 +46,6 @@ const main = async () => {
                     }
                 }
                 break;
-            // case '0':
-            //     tasks.exit();
-            //     break;
-            // default:
-            //     console.log('Invalid option'.red);
-            //     pause();
-            //     break; 
         }
 
         saveDB(tasks.listArr);
@@ -61,8 +53,6 @@ const main = async () => {
         await pause();
 
     } while (option !== '0');
-
 }
-
 
 main();
