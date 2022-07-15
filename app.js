@@ -29,10 +29,10 @@ const main = async () => {
                 tasks.tasksList();
                 break;
             case '3':
-                tasks.listCompleteTask();
+                tasks.listCompleteTask(true);
                 break;
             case '4':
-                tasks.listPendingTask();
+                tasks.listCompleteTask(false);
                 break;
             // case '5':
             //     tasks.deleteAllTasks();

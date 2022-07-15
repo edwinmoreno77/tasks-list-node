@@ -42,28 +42,31 @@ class Tasks {
         });
     }
 
-    listCompleteTask() {
+    listCompleteTask(completed = true) {
         console.log();
-        this.listArr.forEach((task, i) => {
-            const idx = `${i + 1}`.green;
+        let counter = 0;
+        this.listArr.forEach((task) => {
+
             const { desc, completedIn } = task;
-            if (completedIn) {
-                console.log(`${idx} ${desc} ::`, `completed`.green);
+            const state = (completedIn)
+                ? 'Completed'.green
+                : 'Pending'.red;
+            if (completed) {
+                //show completed
+                if (completedIn) {
+                    counter += 1;
+                    console.log(`${counter}.`.green, `${desc} :: `, `${completedIn}`.yellow);
+                }
+            } else {
+                //show pending
+                if (!completedIn) {
+                    counter += 1;
+                    console.log(`${counter}.`.green, `${desc} :: ${state}`);
+                }
+
             }
         });
     }
-
-    listPendingTask() {
-        console.log();
-        this.listArr.forEach((task, i) => {
-            const idx = `${i + 1}`.green;
-            const { desc, completedIn } = task;
-            if (!completedIn) {
-                console.log(`${idx} ${desc} ::`, `Pending`.red);
-            }
-        });
-    }
-
 
     createTask(desc = '') {
 
