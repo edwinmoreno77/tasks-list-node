@@ -1,6 +1,13 @@
 # Task list 
 
-## this is a console application to manage tasks made with NodeJs
+## this is a console application to manage tasks made with NodeJs.
+
+
+## After downloading the repository run npm install.
+
+```
+npm install
+```
 
 When you start, the full menu is shown.
 
@@ -110,7 +117,7 @@ Option 5 allows you to change the status of the tasks, you can change pending to
  
 Option 6 allows you to delete tasks
 
- ```
+```
  ========================
 ==    Select a Menu   ==
 ========================
@@ -128,3 +135,16 @@ Select a task to delete
   4. quinta tarea
   5. study Node.js
 ```
+Option 0 is to exit.
+
+```
+========================
+==    Select a Menu   ==
+========================
+
+? What would you like to do?
+
+ 0. Exit
+
+
+? Press ENTER to continue
