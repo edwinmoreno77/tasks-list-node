@@ -1,6 +1,6 @@
 # Task list 
 
-## this is a console application to manage tasks made with NodeJs.
+this is a console application to manage tasks made with NodeJs.
 
 
 ## After downloading the repository run npm install.
