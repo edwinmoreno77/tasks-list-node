@@ -3,7 +3,7 @@
 this is a console application to manage tasks made with NodeJs.
 
 
-## After downloading the repository run npm install.
+After downloading the repository run npm install.
 
 ```
 npm install
@@ -28,7 +28,9 @@ When you start, the full menu is shown.
   0. Exit
 
 ```
-Option 1 allows you to enter the new tasks.
+Option 1
+
+allows you to enter the new tasks.
 
 ```
 ========================
@@ -41,7 +43,9 @@ Option 1 allows you to enter the new tasks.
 ? Enter a task description: study Node.js
 
 ```
-Option 2 shows the list of completed and pending tasks.
+Option 2 
+
+shows the list of completed and pending tasks.
 
 ```
 ========================
@@ -61,7 +65,9 @@ Option 2 shows the list of completed and pending tasks.
 
 ? Press ENTER to continue
 ```
-Option 3 shows a list of completed tasks with their respective date.
+Option 3 
+
+shows a list of completed tasks with their respective date.
 
 ```
 ========================
@@ -80,7 +86,9 @@ Option 3 shows a list of completed tasks with their respective date.
 
 ? Press ENTER to continue
 ```
-Option 4 shows a list of pending task.
+Option 4 
+
+shows a list of pending task.
 
 ```
 ========================
@@ -97,7 +105,9 @@ Option 4 shows a list of pending task.
 
 ? Press ENTER to continue
 ```
-Option 5 allows you to change the status of the tasks, you can change pending to completed or vice versa.
+Option 5 
+
+allows you to change the status of the tasks, you can change pending to completed or vice versa.
 
 ```
 ========================
@@ -115,7 +125,9 @@ Option 5 allows you to change the status of the tasks, you can change pending to
  ( ) 5. study Node.js
  ```
  
-Option 6 allows you to delete tasks
+Option 6 
+
+allows you to delete tasks
 
 ```
  ========================
@@ -135,7 +147,9 @@ Select a task to delete
   4. quinta tarea
   5. study Node.js
 ```
-Option 0 is to exit.
+Option 0
+
+exit.
 
 ```
 ========================
